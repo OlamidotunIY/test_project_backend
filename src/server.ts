@@ -10,7 +10,9 @@ dotenv.config();
 export const prisma = new PrismaClient();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: "*", // Or specify the exact frontend URL here
+  }));
 app.use(express.json());
 
 app.use("/api", userRoutes);
